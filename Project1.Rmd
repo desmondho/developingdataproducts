@@ -1,0 +1,29 @@
+---
+title: "Developing Data Products - R Markdown and Leaflet"
+author: "Desmond Ho"
+date: "October 9, 2016"
+output: html_document
+---
+
+Project: Create a web page using R Markdown that features a map created with Leaflet.
+
+
+```{r, echo=FALSE}
+library(leaflet)
+
+set.seed(1976-05-20)
+df <- data.frame(lat = runif(50, min = 32.0, max = 32.8),
+                 lng = runif(50, min = -96.8, max = -96.0))
+
+
+df <- data.frame(lat = runif(500, min = 32.0, max = 32.8),
+                 lng = runif(500, min = -96.8, max = -96.0))
+df %>% 
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(clusterOptions = markerClusterOptions())
+
+
+```
+
+
